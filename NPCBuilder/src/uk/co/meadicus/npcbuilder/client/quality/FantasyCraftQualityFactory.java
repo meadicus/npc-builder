@@ -710,6 +710,16 @@ public class FantasyCraftQualityFactory extends QualityFactory {
 		classAbilities.add(new ClassAbility("Scout", "stalker", 2));
 		classAbilities.add(new ClassAbility("Scout", "trail signs", 2));
 		classAbilities.add(new ClassAbility("Scout", "trophy hunter", 2));
+		classAbilities.add(new ClassAbility("Shinobi", "backstab", 2));
+		classAbilities.add(new ClassAbility("Shinobi", "qi sense", 2));
+		classAbilities.add(new ClassAbility("Shinobi", "qi swiftness", 4));
+		classAbilities.add(new ClassAbility("Shinobi", "shadow master", 15));
+		classAbilities.add(new ClassAbility("Shinobi", "surprise strike I", 2));
+		classAbilities.add(new ClassAbility("Shinobi", "surprise strike II", 4));
+		classAbilities.add(new ClassAbility("Skirmisher", "it's a trap", 4));
+		classAbilities.add(new ClassAbility("Skirmisher", "kill zone", 10));
+		classAbilities.add(new ClassAbility("Skirmisher", "run for your lives!", 2));
+		classAbilities.add(new ClassAbility("Skirmisher", "they're all around us!", 5));
 		classAbilities.add(new ClassAbility("Soldier", "armor use I", 2));
 		classAbilities.add(new ClassAbility("Soldier", "armor use II", 4));
 		classAbilities.add(new ClassAbility("Soldier", "armor use III", 6));
@@ -729,5 +739,9 @@ public class FantasyCraftQualityFactory extends QualityFactory {
 		classAbilities.add(new ClassAbility("Swashbuckler", "\"…and one for all!\"", 5));		
 		classAbilities.add(new ClassAbility("Swashbuckler", "tally ho!", 2));
 		classAbilities.add(new ClassAbility("Wind Knight", "shield of the wind", 4));
+		classAbilities.add(new ClassAbility("Witch Hunter", "disrupting strike", 4));
+		classAbilities.add(new ClassAbility("Witch Hunter", "null field", 2));
+		classAbilities.add(new ClassAbility("Witch Hunter", "sense magic", 2));
+		classAbilities.add(new ClassAbility("Witch Hunter", "smite witches", 2));
 	}
 }

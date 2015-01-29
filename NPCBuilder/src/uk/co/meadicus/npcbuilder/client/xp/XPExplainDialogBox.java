@@ -34,7 +34,8 @@ public class XPExplainDialogBox extends Composite {
 		
 		// create tree
 		xpTree.clear();
-		TreeItem baseItem = new TreeItem("Total = " + xp + "xp");
+		TreeItem baseItem = new TreeItem();
+		baseItem.setText("Total = " + xp + "xp");
 		addXPBreakdown(baseItem, xp);
 		xpTree.addItem(baseItem);
 		baseItem.setState(true);
@@ -52,7 +53,8 @@ public class XPExplainDialogBox extends Composite {
 		if (xp instanceof ComplexXP) {
 			ComplexXP complexXP = (ComplexXP) xp;
 			for (Map.Entry<String, XP> entry : complexXP.getComponents().entrySet()) {
-				TreeItem item = new TreeItem(entry.getKey().toLowerCase() + " = " + entry.getValue() + "xp");
+				TreeItem item = new TreeItem();
+				item.setText(entry.getKey().toLowerCase() + " = " + entry.getValue() + "xp");
 				treeItem.addItem(item);
 				addXPBreakdown(item, entry.getValue());
 			}
