@@ -1,0 +1,32 @@
+<!DOCTYPE ui:UiBinder SYSTEM "http://dl.google.com/gwt/DTD/xhtml.ent">
+<ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
+	xmlns:g="urn:import:com.google.gwt.user.client.ui" xmlns:n="urn:import:uk.co.meadicus.npcbuilder.client">
+	<ui:style>
+		.alignCentre {
+			text-align: center;
+		}
+		.alignRight {
+			text-align: right;
+		}
+	</ui:style>
+	<g:HTMLPanel>
+		<g:DialogBox ui:field="mainPanel" animationEnabled="true" modal="true" glassEnabled="true">
+			<g:caption>Dialog</g:caption>
+			<g:FlowPanel>
+				<g:FlowPanel ui:field="contentPanel" addStyleNames="dialogBody">
+				</g:FlowPanel>
+				<g:HTML>
+					<hr/>
+				</g:HTML>
+				<g:FlowPanel ui:field="xpPanel" addStyleNames="{style.alignCentre}">
+					<g:InlineLabel ui:field="xpTotal"></g:InlineLabel>
+					<g:InlineLabel>XP</g:InlineLabel>
+				</g:FlowPanel>
+				<g:FlowPanel addStyleNames="{style.alignRight}">
+					<g:Button ui:field="okButton">OK</g:Button>
+					<g:Button ui:field="cancelButton">Cancel</g:Button>
+				</g:FlowPanel>
+			</g:FlowPanel>
+		</g:DialogBox>
+	</g:HTMLPanel>
+</ui:UiBinder> 

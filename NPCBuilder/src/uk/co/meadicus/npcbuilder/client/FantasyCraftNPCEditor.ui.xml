@@ -1,0 +1,161 @@
+<!DOCTYPE ui:UiBinder SYSTEM "http://dl.google.com/gwt/DTD/xhtml.ent">
+<ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
+	xmlns:g="urn:import:com.google.gwt.user.client.ui" xmlns:t="urn:import:uk.co.meadicus.npcbuilder.client.treasure">
+	<ui:style>
+        .tabPanel {
+            margin: 10px;
+            min-height: 200px;
+        }
+        .alignRight {
+        	display: inline-block;
+        	text-align: right;
+        }
+        .relative {
+        	position: relative;
+        }
+        .topright {
+        	position: absolute;
+        	top: 0;
+        	right: 0;
+        }
+        .bordered {
+        	border: thin solid #d3d3d3;
+        	padding: 3px;
+        }
+        .floatleft {
+        	float: left;
+        }
+        .clearbreak {
+        	clear: both;
+        }
+        .monospace {
+        	font-family: monospace;
+        }
+        .attrcell {
+        	width: 6em;
+        }
+        .attrblock {
+        	width: 18em;
+        }
+        .traitblock {
+        	width: 33em;
+        }
+        .traitcell {
+        	width: 11em;
+        }
+	</ui:style>
+	<g:HTMLPanel>
+		<g:FlowPanel addStyleNames="fantasycraftEditor">
+			<g:HTML><h1>Fantasy Craft NPC Builder</h1></g:HTML>
+			<g:FlowPanel>
+				<g:InlineLabel>Title:</g:InlineLabel>
+				<g:TextBox ui:field="title" text="New NPC"/>
+				<g:Button ui:field="randomNameButton">Random Name...</g:Button>
+				<g:Button ui:field="loadPreviousButton">Load Previous NPC...</g:Button>
+				<g:Button ui:field="newNPCButton">New NPC</g:Button>
+			</g:FlowPanel>
+			<g:FlowPanel>
+				<g:InlineLabel>Size:</g:InlineLabel>
+				<g:ListBox ui:field="sizeListBox" visibleItemCount="1"></g:ListBox>
+				<g:InlineLabel>Footprint:</g:InlineLabel>
+				<g:ListBox ui:field="footprintXListBox" visibleItemCount="1"></g:ListBox>
+				<g:InlineLabel>×</g:InlineLabel>
+				<g:ListBox ui:field="footprintYListBox" visibleItemCount="1"></g:ListBox>
+				<g:InlineLabel>Reach:</g:InlineLabel>
+				<g:ListBox ui:field="reachListBox" visibleItemCount="1"></g:ListBox>
+				<g:Button ui:field="typeButton">Type...</g:Button>
+				<g:Button ui:field="mobilityButton">Mobility...</g:Button>
+				<g:Button ui:field="templateButton">Template...</g:Button>					
+			</g:FlowPanel>
+			<g:FlowPanel addStyleNames="{style.floatleft} {style.attrblock}">
+				<g:Label horizontalAlignment="ALIGN_CENTER">Attributes</g:Label>
+				<g:FlowPanel>
+					<g:FlowPanel addStyleNames="{style.alignRight} {style.attrcell}">
+						<g:InlineLabel>Str:</g:InlineLabel>
+						<g:ListBox ui:field="strListBox" visibleItemCount="1"></g:ListBox>
+					</g:FlowPanel>
+					<g:FlowPanel addStyleNames="{style.alignRight} {style.attrcell}">
+						<g:InlineLabel>Dex:</g:InlineLabel>
+						<g:ListBox ui:field="dexListBox" visibleItemCount="1"></g:ListBox>
+					</g:FlowPanel>
+					<g:FlowPanel addStyleNames="{style.alignRight} {style.attrcell}">
+						<g:InlineLabel>Con:</g:InlineLabel>
+						<g:ListBox ui:field="conListBox" visibleItemCount="1"></g:ListBox>
+					</g:FlowPanel>
+				</g:FlowPanel><g:FlowPanel>
+					<g:FlowPanel addStyleNames="{style.alignRight} {style.attrcell}">
+						<g:InlineLabel>Int:</g:InlineLabel>
+						<g:ListBox ui:field="intListBox" visibleItemCount="1"></g:ListBox>
+					</g:FlowPanel>
+					<g:FlowPanel addStyleNames="{style.alignRight} {style.attrcell}">
+						<g:InlineLabel>Wis:</g:InlineLabel>
+						<g:ListBox ui:field="wisListBox" visibleItemCount="1"></g:ListBox>
+					</g:FlowPanel>
+					<g:FlowPanel addStyleNames="{style.alignRight} {style.attrcell}">
+						<g:InlineLabel>Cha:</g:InlineLabel>
+						<g:ListBox ui:field="chaListBox" visibleItemCount="1"></g:ListBox>
+					</g:FlowPanel>
+				</g:FlowPanel>
+			</g:FlowPanel>
+			<g:FlowPanel addStyleNames="{style.floatleft} {style.traitblock}">
+				<g:Label horizontalAlignment="ALIGN_CENTER">Traits</g:Label>
+				<g:FlowPanel>
+					<g:FlowPanel addStyleNames="{style.alignRight} {style.traitcell}">
+						<g:InlineLabel>Initiative:</g:InlineLabel>
+						<g:ListBox ui:field="initListBox" visibleItemCount="1"></g:ListBox>
+					</g:FlowPanel>
+					<g:FlowPanel addStyleNames="{style.alignRight} {style.traitcell}">
+						<g:InlineLabel>Attack:</g:InlineLabel>
+						<g:ListBox ui:field="atkListBox" visibleItemCount="1"></g:ListBox>
+					</g:FlowPanel>
+					<g:FlowPanel addStyleNames="{style.alignRight} {style.traitcell}">
+						<g:InlineLabel>Defense:</g:InlineLabel>
+						<g:ListBox ui:field="defListBox" visibleItemCount="1"></g:ListBox>
+					</g:FlowPanel>
+				</g:FlowPanel>
+				<g:FlowPanel>
+					<g:FlowPanel addStyleNames="{style.alignRight} {style.traitcell}">
+						<g:InlineLabel>Resilience:</g:InlineLabel>
+						<g:ListBox ui:field="resListBox" visibleItemCount="1"></g:ListBox>
+					</g:FlowPanel>
+					<g:FlowPanel addStyleNames="{style.alignRight} {style.traitcell}">
+						<g:InlineLabel>Health:</g:InlineLabel>
+						<g:ListBox ui:field="hlthListBox" visibleItemCount="1"></g:ListBox>
+					</g:FlowPanel>
+					<g:FlowPanel addStyleNames="{style.alignRight} {style.traitcell}">
+						<g:InlineLabel>Competence:</g:InlineLabel>
+						<g:ListBox ui:field="compListBox" visibleItemCount="1"></g:ListBox>
+					</g:FlowPanel>
+				</g:FlowPanel>
+			</g:FlowPanel>
+			<g:FlowPanel addStyleNames="{style.clearbreak}"/>
+			<g:FlowPanel>
+				<g:Button ui:field="skillsButton">Signature Skills...</g:Button>
+				<g:Button ui:field="spellsButton">Spellcasting...</g:Button>
+				<g:Button ui:field="qualitiesButton">Qualities...</g:Button>
+				<g:Button ui:field="attacksButton">Attacks...</g:Button>
+				<g:Button ui:field="gearButton">Gear...</g:Button>
+				<g:Button ui:field="treasureButton">Treasure...</g:Button>
+			</g:FlowPanel>
+			<g:FlowPanel addStyleNames="{style.relative}">
+				<g:HTMLPanel><h3>Stat Block:</h3></g:HTMLPanel>
+				<g:FlowPanel width="18em" addStyleNames="statToolBar {style.alignRight} {style.topright}">
+					<g:Button ui:field="explainButton">Explain XP</g:Button>
+					<g:InlineLabel>Threat Level:</g:InlineLabel>
+					<g:ListBox ui:field="tlListBox" visibleItemCount="1"></g:ListBox>
+				</g:FlowPanel>
+			</g:FlowPanel>
+			<g:FlowPanel addStyleNames="{style.bordered}">
+				<g:HTML ui:field="statBlock">
+				</g:HTML>
+				<g:HTML ui:field="tlStatBlock" addStyleNames="{style.monospace}">
+				</g:HTML>
+				<g:FlowPanel ui:field="treasureGenPanel">
+					<g:HTML>
+						<hr/>
+					</g:HTML>
+				</g:FlowPanel>
+			</g:FlowPanel>
+		</g:FlowPanel>
+	</g:HTMLPanel>
+</ui:UiBinder> 

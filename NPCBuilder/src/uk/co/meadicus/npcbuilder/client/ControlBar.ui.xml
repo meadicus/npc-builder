@@ -1,0 +1,21 @@
+<!DOCTYPE ui:UiBinder SYSTEM "http://dl.google.com/gwt/DTD/xhtml.ent">
+<ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
+	xmlns:g="urn:import:com.google.gwt.user.client.ui">
+	<ui:style>
+		.small {
+			font-size: small;
+		}
+	</ui:style>
+	<g:HTMLPanel addStyleNames="controlbar">
+		<g:FlowPanel addStyleNames="barlabel">
+			<g:InlineLabel>Web NPC Builder</g:InlineLabel>
+			<g:InlineHTML addStyleNames="{style.small}">
+				&nbsp;(for <a href="http://www.crafty-games.com">Crafty Games</a> RPG products)
+			</g:InlineHTML>
+		</g:FlowPanel>
+		<g:FlowPanel addStyleNames="barbuttons">
+			<g:Button ui:field="scButton">Spycraft 2.0</g:Button>
+			<g:Button ui:field="fcButton">FantasyCraft</g:Button>
+		</g:FlowPanel>
+	</g:HTMLPanel>
+</ui:UiBinder> 

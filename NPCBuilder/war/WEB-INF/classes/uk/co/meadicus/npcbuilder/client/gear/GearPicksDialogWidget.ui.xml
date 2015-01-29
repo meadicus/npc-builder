@@ -1,0 +1,26 @@
+<!DOCTYPE ui:UiBinder SYSTEM "http://dl.google.com/gwt/DTD/xhtml.ent">
+<ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
+	xmlns:g="urn:import:com.google.gwt.user.client.ui">
+	<ui:style>
+		
+	</ui:style>
+	<g:HTMLPanel>
+		<g:FlowPanel>
+			<g:FlowPanel addStyleNames="gearBanner">
+				<g:InlineLabel>Weapons</g:InlineLabel>
+				<g:Button ui:field="addWeaponButton" addStyleNames="plusButton">+</g:Button>
+			</g:FlowPanel>
+			<g:FlowPanel ui:field="weaponPicksPanel"></g:FlowPanel>
+			<g:FlowPanel addStyleNames="gearBanner">
+				<g:InlineLabel>Gear</g:InlineLabel>
+				<g:Button ui:field="addGearButton" addStyleNames="plusButton">+</g:Button>
+			</g:FlowPanel>
+			<g:FlowPanel ui:field="gearPicksPanel"></g:FlowPanel>
+			<g:FlowPanel addStyleNames="gearBanner">
+				<g:InlineLabel>Vehicle</g:InlineLabel>
+				<g:Button ui:field="addVehicleButton" addStyleNames="plusButton">+</g:Button>
+			</g:FlowPanel>
+			<g:FlowPanel ui:field="vehiclePicksPanel"></g:FlowPanel>
+		</g:FlowPanel>
+	</g:HTMLPanel>
+</ui:UiBinder> 

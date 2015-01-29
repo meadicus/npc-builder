@@ -1,0 +1,25 @@
+<!DOCTYPE ui:UiBinder SYSTEM "http://dl.google.com/gwt/DTD/xhtml.ent">
+<ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
+	xmlns:g="urn:import:com.google.gwt.user.client.ui">
+	<ui:style>
+		
+	</ui:style>
+	<g:HTMLPanel>
+		<g:FlowPanel>
+			<g:InlineLabel>Any:</g:InlineLabel>
+			<g:ListBox ui:field="anyListBox"/>
+			<g:InlineLabel>Coin:</g:InlineLabel>
+			<g:ListBox ui:field="coinListBox"/>
+			<g:InlineLabel>Gear:</g:InlineLabel>
+			<g:ListBox ui:field="gearListBox"/>
+		</g:FlowPanel>
+		<g:FlowPanel>
+			<g:InlineLabel>Loot:</g:InlineLabel>
+			<g:ListBox ui:field="lootListBox"/>
+			<g:InlineLabel>Magic:</g:InlineLabel>
+			<g:ListBox ui:field="magicListBox"/>
+			<g:InlineLabel>Trophies:</g:InlineLabel>
+			<g:ListBox ui:field="trophiesListBox"/>
+		</g:FlowPanel>
+	</g:HTMLPanel>
+</ui:UiBinder> 

@@ -1,0 +1,25 @@
+<!DOCTYPE ui:UiBinder SYSTEM "http://dl.google.com/gwt/DTD/xhtml.ent">
+<ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
+	xmlns:g="urn:import:com.google.gwt.user.client.ui">
+	<ui:style>
+		.alignRight {
+			text-align: right;
+		}
+	</ui:style>
+	<g:HTMLPanel>
+		<g:DialogBox ui:field="mainPanel" animationEnabled="true" modal="true" glassEnabled="true">
+			<g:caption>XP Breakdown</g:caption>
+			<g:FlowPanel>
+				<g:FlowPanel ui:field="contentPanel">
+					<g:Tree ui:field="xpTree"/>
+				</g:FlowPanel>
+				<g:HTML>
+					<hr/>
+				</g:HTML>
+				<g:FlowPanel addStyleNames="{style.alignRight}">
+					<g:Button ui:field="closeButton">OK</g:Button>
+				</g:FlowPanel>
+			</g:FlowPanel>
+		</g:DialogBox>
+	</g:HTMLPanel>
+</ui:UiBinder> 

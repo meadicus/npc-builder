@@ -1,0 +1,20 @@
+<!DOCTYPE ui:UiBinder SYSTEM "http://dl.google.com/gwt/DTD/xhtml.ent">
+<ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
+	xmlns:g="urn:import:com.google.gwt.user.client.ui">
+	<ui:style>
+		.space {
+			padding: 4px 0;
+		}
+	</ui:style>
+	<g:HTMLPanel>
+		<g:FlowPanel>
+			<g:Button ui:field="scButton" addStyleNames="big blue">Spycraft 2.0</g:Button>
+			<g:Button ui:field="fcButton" addStyleNames="big red">FantasyCraft</g:Button>
+		</g:FlowPanel>
+		<g:FlowPanel>
+			<g:Label addStyleNames="{style.space}">Other tools:</g:Label>
+			<g:Button ui:field="fcNameButton">FantasyCraft Name Generator</g:Button>
+			<g:Button ui:field="fcTreasureButton">FantasyCraft Treasure Generator</g:Button>
+		</g:FlowPanel>
+	</g:HTMLPanel>
+</ui:UiBinder> 

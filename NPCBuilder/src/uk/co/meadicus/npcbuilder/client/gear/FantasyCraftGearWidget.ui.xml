@@ -1,0 +1,16 @@
+<!DOCTYPE ui:UiBinder SYSTEM "http://dl.google.com/gwt/DTD/xhtml.ent">
+<ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
+	xmlns:g="urn:import:com.google.gwt.user.client.ui">
+	<ui:style>
+		.note {
+			font-style: italic;
+		}
+	</ui:style>
+	<g:HTMLPanel>
+		<g:Label>Mounts and Vehicles:</g:Label>
+		<g:TextArea ui:field="mountsAndVehicles" characterWidth="50" visibleLines="3"/>
+		<g:Label>Gear:</g:Label>
+		<g:TextArea ui:field="gear" characterWidth="50" visibleLines="3"/>
+		<g:Label addStyleNames="{style.note}">The NPC Builder does not take gear int account in the XP total.</g:Label>
+	</g:HTMLPanel>
+</ui:UiBinder> 

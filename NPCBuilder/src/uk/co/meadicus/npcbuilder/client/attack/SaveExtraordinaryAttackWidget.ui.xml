@@ -1,0 +1,38 @@
+<!DOCTYPE ui:UiBinder SYSTEM "http://dl.google.com/gwt/DTD/xhtml.ent">
+<ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
+	xmlns:g="urn:import:com.google.gwt.user.client.ui" xmlns:a="urn:import:uk.co.meadicus.npcbuilder.client.attack">
+	<ui:style>
+		.indented {
+			margin-left: 3em;
+		}
+	</ui:style>
+	<g:HTMLPanel>
+		<g:FlowPanel>
+			<g:InlineLabel>Attack Name:</g:InlineLabel>
+			<g:TextBox ui:field="attackName"/>
+			<g:ListBox ui:field="attackType"/>
+			<g:ListBox ui:field="attackGrade"/>
+		</g:FlowPanel>
+		<g:HTML>
+			<hr/>
+		</g:HTML>
+		<g:FlowPanel>
+			<g:FlowPanel>
+				<g:RadioButton name="upgrade" ui:field="noUpgrade">no upgrade</g:RadioButton>
+			</g:FlowPanel>
+			<g:FlowPanel>
+				<g:RadioButton name="upgrade" ui:field="attackLink">supernatural attack</g:RadioButton>
+				<g:FlowPanel addStyleNames="{style.indented}">
+					<g:InlineLabel>linked to:</g:InlineLabel>
+					<g:TextBox ui:field="linkedAttack"/>
+				</g:FlowPanel>
+			</g:FlowPanel>
+			<g:FlowPanel>
+				<g:RadioButton name="upgrade" ui:field="areaUpgrade">area</g:RadioButton>
+				<g:FlowPanel addStyleNames="{style.indented}">
+					<a:AreaWidget ui:field="area" includeBlank="false"/>
+				</g:FlowPanel>
+			</g:FlowPanel>
+		</g:FlowPanel>
+	</g:HTMLPanel>
+</ui:UiBinder> 

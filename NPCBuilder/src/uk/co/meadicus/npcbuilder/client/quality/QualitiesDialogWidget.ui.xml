@@ -1,0 +1,26 @@
+<!DOCTYPE ui:UiBinder SYSTEM "http://dl.google.com/gwt/DTD/xhtml.ent">
+<ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
+	xmlns:g="urn:import:com.google.gwt.user.client.ui">
+	<ui:style>
+		.footnote {
+			font-size: small;
+		}
+	</ui:style>
+	<g:HTMLPanel>
+		<g:FlowPanel>
+			<g:Label>New</g:Label>
+			<g:ListBox ui:field="newQualityListBox" visibleItemCount="1"/>
+			<g:Button ui:field="addButton">Add</g:Button>
+			<g:HTML>
+				<hr/>
+			</g:HTML>
+			<g:Label>Current</g:Label>
+			<g:ListBox ui:field="editQualityListBox" addStyleNames="currentQualitiesList" visibleItemCount="8" />
+			<g:Label ui:field="customQualityNote" visible="false" addStyleNames="{style.footnote}">* custom quality</g:Label>
+			<g:FlowPanel>
+				<g:Button ui:field="editButton">Edit</g:Button>
+				<g:Button ui:field="removeButton">Remove</g:Button>
+			</g:FlowPanel>
+		</g:FlowPanel>
+	</g:HTMLPanel>
+</ui:UiBinder> 

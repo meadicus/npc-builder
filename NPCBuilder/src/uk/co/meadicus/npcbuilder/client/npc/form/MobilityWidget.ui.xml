@@ -1,0 +1,36 @@
+<!DOCTYPE ui:UiBinder SYSTEM "http://dl.google.com/gwt/DTD/xhtml.ent">
+<ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
+	xmlns:g="urn:import:com.google.gwt.user.client.ui">
+	<ui:style>
+		.speedLabel {
+			width: 8em;
+			display: inline-block;
+		}
+	</ui:style>
+	<g:HTMLPanel>
+		<g:FlowPanel>
+			<g:Label>Primary Motion Type:</g:Label>
+			<g:FlowPanel>
+				<g:ListBox ui:field="motionTypeListBox"/>
+			</g:FlowPanel>
+			<g:FlowPanel ui:field="speedEditArea">
+				<g:FlowPanel>
+					<g:InlineLabel addStyleNames="{style.speedLabel}">Ground Speed:</g:InlineLabel>
+					<g:ListBox ui:field="walkerSpeedListBox"/>
+				</g:FlowPanel>
+				<g:FlowPanel>
+					<g:InlineLabel addStyleNames="{style.speedLabel}">Burrow Speed:</g:InlineLabel>
+					<g:ListBox ui:field="burrowerSpeedListBox"/>
+				</g:FlowPanel>
+				<g:FlowPanel>
+					<g:InlineLabel addStyleNames="{style.speedLabel}">Fly Speed:</g:InlineLabel>
+					<g:ListBox ui:field="flyerSpeedListBox"/>
+				</g:FlowPanel>
+				<g:FlowPanel>
+					<g:InlineLabel addStyleNames="{style.speedLabel}">Swim Speed:</g:InlineLabel>
+					<g:ListBox ui:field="swimmerSpeedListBox"/>
+				</g:FlowPanel>
+			</g:FlowPanel>
+		</g:FlowPanel>
+	</g:HTMLPanel>
+</ui:UiBinder> 
