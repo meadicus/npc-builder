@@ -17,7 +17,10 @@
 
   <!-- Specify the paths for translatable code                    -->
   <source path='client'/>
+  <source path='shared'/>
 
   <set-configuration-property name="UiBinder.useSafeHtmlTemplates" value="true" />
   
+  <!-- allow Super Dev Mode -->
+  <add-linker name="xsiframe" />
 </module>

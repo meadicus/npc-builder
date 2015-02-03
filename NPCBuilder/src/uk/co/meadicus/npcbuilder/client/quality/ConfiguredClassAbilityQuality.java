@@ -5,6 +5,7 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
+import uk.co.meadicus.npcbuilder.client.util.NPCUtils;
 import uk.co.meadicus.npcbuilder.client.xp.ComplexXP;
 import uk.co.meadicus.npcbuilder.client.xp.XP;
 
@@ -93,4 +94,20 @@ public class ConfiguredClassAbilityQuality extends ScoredDetailQuality {
 		}
 		return xp;
 	}
+
+	@Override
+	protected void parseDetails(String text) {
+		List<String> theUses = NPCUtils.bracketAwareSplit(text, ',');
+		String lastClassname = "";
+		for (String use : theUses) {
+			if (use.matches("[^\\s]+:.*")) {
+				lastClassname = use.substring(0, use.indexOf(':'));
+			} else {
+				use = lastClassname + ": " + use;
+			}
+			getUses().add(use);
+		}
+	}
+
+	
 }

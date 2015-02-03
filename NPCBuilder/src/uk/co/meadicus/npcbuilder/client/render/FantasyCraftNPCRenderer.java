@@ -257,46 +257,35 @@ public class FantasyCraftNPCRenderer extends NPCRenderer<FantasyCraftNPC> {
 		for (String info : infoItems) {
 			info = info.trim();
 			if (!info.isEmpty()) {
-				// seperate name from value(s)
-				String[] datum;
-				if (info.indexOf(':') > 0) {
-					datum = info.split(":", 2);
-				} else {
-					datum = info.split("\\s", 2);
-				}
-				if (datum.length > 0) {
-					datum[1] = datum[1].trim();
-					// get quality category, remove any trailing non alphabetic characters
-					String qcat = datum[0].trim().replaceAll("^\\W+|\\W+$", "").toLowerCase();
-					if (qcat.equals("str")) {
-						parseAttributes(npc, qcat + " " + datum[1]);
-					} else if (qcat.equals("init")) {
-						npc.setInit(Roman.toInt(datum[1]));
-					} else if (qcat.equals("atk")) {
-						npc.setAtk(Roman.toInt(datum[1]));
-					} else if (qcat.equals("def")) {
-						npc.setDef(Roman.toInt(datum[1]));
-					} else if (qcat.equals("resilience") || qcat.equals("res")) {
-						npc.setRes(Roman.toInt(datum[1]));
-					} else if (qcat.equals("health")) {
-						npc.setHlth(Roman.toInt(datum[1]));
-					} else if (qcat.equals("competence") || qcat.equals("comp")) {
-						if (!npc.getType().equals(SCNPCType.ANIMAL)) {
-							npc.setComp(Roman.toInt(datum[1]));
-						}
-					} else if (qcat.equals("skills")) {
-						parseSkills(npc, datum[1]);
-						// check skills for spellcasting
-						checkSpellcastingPostParseSkills(npc);
-					} else if (qcat.equals("qualities")) {
-						parseQualities(npc, datum[1]);
-					} else if (qcat.equals("spells")) {
-						parseSpells(npc, datum[1]);
-					} else if (qcat.equals("size") || qcat.equals("sz")) {
-						parseSize(npc, datum[1]);
-					} else if (qcat.equals("speed") || qcat.equals("spd")) {
-						parseSpeed(npc, datum[1], mobilityTypes);
+				
+				if (startsWithIgnoreCase(info, "str")) {
+					parseAttributes(npc, info);
+				} else if (startsWithIgnoreCase(info, "init")) {
+					npc.setInit(Roman.toInt(readValue(info,"init")));
+				} else if (startsWithIgnoreCase(info, "atk")) {
+						npc.setAtk(Roman.toInt(readValue(info,"atk")));
+				} else if (startsWithIgnoreCase(info, "def")) {
+					npc.setDef(Roman.toInt(readValue(info,"def")));
+				} else if (startsWithIgnoreCase(info, "resilience") || startsWithIgnoreCase(info, "res")) {
+					npc.setRes(Roman.toInt(readValue(info,"resilience","res")));
+				} else if (startsWithIgnoreCase(info, "health")) {
+					npc.setHlth(Roman.toInt(readValue(info,"health")));
+				} else if (startsWithIgnoreCase(info, "competence") || startsWithIgnoreCase(info, "comp")) {
+					if (!npc.getType().equals(SCNPCType.ANIMAL)) {
+						npc.setComp(Roman.toInt(readValue(info,"competence","comp")));
 					}
+				} else if (startsWithIgnoreCase(info, "skills")) {
+					parseSkills(npc, readValue(info,"skills"));
+					// check skills for spellcasting
+					checkSpellcastingPostParseSkills(npc);
+				} else if (startsWithIgnoreCase(info, "qualities")) {
+					parseQualities(npc, readValue(info,"qualities"));
+				} else if (startsWithIgnoreCase(info, "spells")) {
+					parseSpells(npc, readValue(info,"spells"));
+				} else if (startsWithIgnoreCase(info, "size") || startsWithIgnoreCase(info, "sz")) {
+					parseSize(npc, readValue(info,"size","sz"));
+				} else if (startsWithIgnoreCase(info, "speed") || startsWithIgnoreCase(info, "spd")) {
+					parseSpeed(npc, readValue(info,"speed","spd"), mobilityTypes);
 				}
 			}
 		}
@@ -307,6 +296,29 @@ public class FantasyCraftNPCRenderer extends NPCRenderer<FantasyCraftNPC> {
 			extractTemplate(npc, template);
 		}
 	}
+
+	private boolean startsWithIgnoreCase(String info, String string) {
+		return info.toLowerCase().startsWith(string.toLowerCase());
+	}
+
+
+	private String readValue(String info, String... prefixes) {
+		for (String prefix : prefixes) {
+			if (startsWithIgnoreCase(info, prefix)) {
+				return readValue(info, prefix);
+			}
+		}
+		return "";
+	}
+	
+	private String readValue(String info, String prefix) {
+		String val = info.substring(prefix.length()).trim();
+		while(val.startsWith(":")) {
+			val = val.substring(1);
+		}
+		return val;
+	}
+
 
 	private String firstTemplateWord(String text) {
 		return text.replaceFirst("([^\\s]*)\\([Tt]\\)\\s.*", "$1").trim();
@@ -370,7 +382,7 @@ public class FantasyCraftNPCRenderer extends NPCRenderer<FantasyCraftNPC> {
 		List<String> attrs = NPCUtils.bracketAwareSplit(text, ',');
 		for (String attrstat : attrs) {
 			String attr = attrstat.substring(0,3).toLowerCase();
-			int score = Integer.parseInt(attrstat.substring(4));
+			int score = Integer.parseInt(attrstat.substring(3).trim());
 			if (attr.equals("str")) {
 				npc.setStr(score);
 			} else if (attr.equals("dex")) {
@@ -435,7 +447,7 @@ public class FantasyCraftNPCRenderer extends NPCRenderer<FantasyCraftNPC> {
 		for (String reward : rewards) {
 			// split the number and code
 			char code = reward.charAt(reward.length()-1);
-			int number = Integer.parseInt(reward.substring(0, reward.length()-1));
+			int number = Integer.parseInt(reward.substring(0, reward.length()-1).trim());
 			
 			switch (code) {
 				//any
