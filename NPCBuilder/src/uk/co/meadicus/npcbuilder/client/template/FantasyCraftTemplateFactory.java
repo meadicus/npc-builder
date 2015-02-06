@@ -154,7 +154,7 @@ public class FantasyCraftTemplateFactory {
 		} else if (name.equals("Skeletal")) {
 			Set<FCNPCType> types = new HashSet<FCNPCType>();
 			types.add(FCNPCType.UNDEAD);
-			List<Quality> qualities = createQualities("damage defiance (edged), damage immunity (bows), ferocity");
+			List<Quality> qualities = createQualities("achilles heel (blunt), damage defiance (edged), damage immunity (bows), ferocity, tricky (Relentless Attack)");
 			template = new FantasyCraftTemplate(name, null, null, null, qualities, null, types, 0, 0, null, 0, 0, 15);
 		} else if (name.equals("Vampiric")) {
 			Set<FCNPCType> types = new HashSet<FCNPCType>();
@@ -166,16 +166,17 @@ public class FantasyCraftTemplateFactory {
 			template = new FantasyCraftTemplate(name, attMods, statMods, null, qualities, attacks, types, 0, 0, null, 0, 0, 45);
 		} else if (name.equals("Drake")) {
 			Mobility mobility = new Mobility(MotionType.FLYER, 40);
+			List<Quality> qualities = createQualities("cold-blooded");
 			List<Attack> attacks = createAttacks("Fire Breath (damage II: beam 20ft. range; damage type: fire), Bite II, Claw II");
-			template = new FantasyCraftTemplate(name, null, null, null, attacks, FCNPCType.BEAST, 0, 0, Size.LARGE, 0, 0, mobility, 16);			
+			template = new FantasyCraftTemplate(name, null, null, qualities, attacks, FCNPCType.BEAST, 0, 0, Size.LARGE, 0, 0, mobility, 14);			
 		} else if (name.equals("Dwarf")) {
 			int[] attMods = {0, 0, 2, 0, 0, 0}; // str, dex, con, int, wis, cha
-			List<Quality> qualities = createQualities("banned action (Jump, Swim), damage reduction 2, darkvision I, improved stability");
+			List<Quality> qualities = createQualities("damage reduction 2, darkvision I, improved stability");
 			template = new FantasyCraftTemplate(name, attMods, null, null, qualities, null, null, 0, 0, null, 0, -10, 11);
 		} else if (name.equals("Elf")) {
 			int[] attMods = {0, 0, 0, 0, 2, 0}; // str, dex, con, int, wis, cha
-			List<Quality> qualities = createQualities("attractive I, burden of ages, improved sense (hearing, sight), light sleeper");
-			template = new FantasyCraftTemplate(name, attMods, null, qualities, null, FCNPCType.FEY, 0, 0, null, 0, 10, 3);
+			List<Quality> qualities = createQualities("attractive I, burden of ages, improved sense (hearing, sight)");
+			template = new FantasyCraftTemplate(name, attMods, null, qualities, null, FCNPCType.FEY, 0, 0, null, 0, 10, 2);
 		} else if (name.equals("Giant")) {
 			List<Quality> qualities = createQualities("improved stability");
 			List<Attack> attacks = createAttacks("Trample I");
@@ -186,22 +187,22 @@ public class FantasyCraftTemplateFactory {
 			template = new FantasyCraftTemplate(name, null, statMods, null, qualities, null, null, 0, 0, Size.SMALL, 0, 0, 2);
 		} else if (name.equals("Ogre")) {
 			int[] attMods = {0, 0, 2, 0, 0, 0}; // str, dex, con, int, wis, cha
-			List<Quality> qualities = createQualities("banned action (Outmaneuver, Tumble), tough I");
+			List<Quality> qualities = createQualities("tough I");
 			template = new FantasyCraftTemplate(name, attMods, null, null, qualities, null, null, 0, 0, Size.LARGE, 0, 0, 7);
 		} else if (name.equals("Orc")) {
 			int[] attMods = {2, 0, 0, 0, 0, 0}; // str, dex, con, int, wis, cha
-			List<Quality> qualities = createQualities("always ready, banned action (Calm, Influence), grueling combatant, light-sensitive");
+			List<Quality> qualities = createQualities("always ready, grueling combatant, light-sensitive");
 			template = new FantasyCraftTemplate(name, attMods, null, null, qualities, null, null, 0, 0, null, 0, 0, 4);
 		} else if (name.equals("Pech")) {
 			int[] attMods = {0, 2, 0, 0, 0, 0}; // str, dex, con, int, wis, cha
 			template = new FantasyCraftTemplate(name, attMods, null, null, null, null, null, 0, 0, Size.SMALL, 0, 0, 2);
 		} else if (name.equals("Rootwalker")) {
-			List<Quality> qualities = createQualities("achilles heel (fire), chameleon I (forest/jungle), damage reduction I, feat (Iron Will), light sleeper, lumbering");
-			template = new FantasyCraftTemplate(name, null, null, qualities, null, FCNPCType.PLANT, 0, 0, Size.LARGE, 0, 0, 9);
+			List<Quality> qualities = createQualities("achilles heel (fire), chameleon I (forest/jungle), condition immunity (bleeding), damage reduction I, light sleeper, lumbering");
+			template = new FantasyCraftTemplate(name, null, null, qualities, null, FCNPCType.PLANT, 0, 0, Size.LARGE, 0, 0, 11);
 		} else if (name.equals("Saurian")) {
 			int[] attMods = {0, 2, 0, 0, 0, 0}; // str, dex, con, int, wis, cha
 			List<Quality> qualities = createQualities("aquatic I, cold-blooded, darkvision I");
-			List<Attack> attacks = createAttacks("Tail slap II (reach 1)");
+			List<Attack> attacks = createAttacks("Tail slap I (reach 1), Bite I");
 			template = new FantasyCraftTemplate(name, attMods, null, null, qualities, attacks, null, 0, 0, null, 0, 0, 6);
 		} else if (name.equals("Unborn")) {
 			int[] statMods = {0, 0, 1, 1, 1, 0}; // init, atk, def, res, hlth, comp

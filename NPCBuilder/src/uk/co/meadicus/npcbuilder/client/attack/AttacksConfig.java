@@ -68,13 +68,13 @@ public abstract class AttacksConfig {
 		svAttacks.put("entangling", 2);
 		svAttacks.put("fatiguing", 3);
 		svAttacks.put("frightening", 2);
-		svAttacks.put("paralyzing", 4);
+		svAttacks.put("paralyzing", 3);
 		svAttacks.put("petrifying", 5);
 		svAttacks.put("shaking", 3);
 		svAttacks.put("sickening", 2);
 		svAttacks.put("slowing", 3);
 		svAttacks.put("sprawling", 2);
-		svAttacks.put("stunning", 3);
+		svAttacks.put("stunning", 4);
 		svAttacks.put("wounding", 2);
 		saveAttacks = Collections.unmodifiableMap(svAttacks);
 	}
