@@ -197,7 +197,7 @@ public class FantasyCraftNPCRenderer extends NPCRenderer<FantasyCraftNPC> {
 		output += " Init " + Roman.toRoman(npc.getInit()) + ";";
 		output += " Atk " + Roman.toRoman(npc.getAtk()) + ";";
 		output += " Def " + Roman.toRoman(npc.getDef()) + ";";
-		output += " Resilience " + Roman.toRoman(npc.getRes()) + ";";
+		output += " Res " + Roman.toRoman(npc.getRes()) + ";";
 		output += " Health " + Roman.toRoman(npc.getHlth()) + ";";
 		output += " Comp " + Roman.toRoman(npc.getComp()) + ";";
 				
