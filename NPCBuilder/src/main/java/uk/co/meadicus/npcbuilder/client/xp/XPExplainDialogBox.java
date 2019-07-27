@@ -43,7 +43,7 @@ public class XPExplainDialogBox extends Composite {
 	private void addXPBreakdown(TreeItem treeItem, XP xp) {
 		if (xp instanceof ComplexXP) {
 			ComplexXP complexXP = (ComplexXP) xp;
-			for (Map.Entry<String, XP> entry : complexXP.getComponents().entrySet()) {
+			for (Map.Entry<String, XP> entry : complexXP.getFlatComponents().entrySet()) {
 				TreeItem item = new TreeItem();
 				item.setText(entry.getKey().toLowerCase() + " = " + entry.getValue() + "xp");
 				treeItem.addItem(item);
