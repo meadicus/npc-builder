@@ -1,5 +1,20 @@
 package uk.co.meadicus.npcbuilder.client.treasure;
 
+import com.google.gwt.core.client.GWT;
+import com.google.gwt.dom.client.Element;
+import com.google.gwt.dom.client.LIElement;
+import com.google.gwt.dom.client.UListElement;
+import com.google.gwt.event.dom.client.ChangeEvent;
+import com.google.gwt.event.dom.client.ChangeHandler;
+import com.google.gwt.uibinder.client.UiBinder;
+import com.google.gwt.uibinder.client.UiField;
+import com.google.gwt.user.client.Window;
+import com.google.gwt.user.client.ui.Button;
+import com.google.gwt.user.client.ui.ListBox;
+import com.google.gwt.user.client.ui.Panel;
+import com.google.gwt.user.client.ui.TextBox;
+import com.google.gwt.user.client.ui.Widget;
+
 import uk.co.meadicus.npcbuilder.client.NPCEditor;
 import uk.co.meadicus.npcbuilder.client.npc.FantasyCraftNPC;
 import uk.co.meadicus.npcbuilder.client.treasure.Treasure.TreasureType;
@@ -10,46 +25,36 @@ import uk.co.meadicus.npcbuilder.client.treasure.generator.TreasureItem;
 import uk.co.meadicus.npcbuilder.client.treasure.generator.support.TableRoll;
 import uk.co.meadicus.npcbuilder.client.util.NPCUtils;
 
-import com.google.gwt.core.client.GWT;
-import com.google.gwt.dom.client.Element;
-import com.google.gwt.dom.client.LIElement;
-import com.google.gwt.dom.client.UListElement;
-import com.google.gwt.event.dom.client.ChangeEvent;
-import com.google.gwt.event.dom.client.ChangeHandler;
-import com.google.gwt.event.dom.client.ClickEvent;
-import com.google.gwt.event.dom.client.ClickHandler;
-import com.google.gwt.uibinder.client.UiBinder;
-import com.google.gwt.uibinder.client.UiField;
-import com.google.gwt.user.client.Window;
-import com.google.gwt.user.client.ui.Button;
-import com.google.gwt.user.client.ui.ListBox;
-import com.google.gwt.user.client.ui.Panel;
-import com.google.gwt.user.client.ui.TextBox;
-import com.google.gwt.user.client.ui.Widget;
-
 public class TreasureGeneratorWidget extends TreasureWidget {
 
-	private static TreasureGeneratorWidgetUiBinder uiBinder = GWT
-			.create(TreasureGeneratorWidgetUiBinder.class);
+	private static TreasureGeneratorWidgetUiBinder uiBinder = GWT.create(TreasureGeneratorWidgetUiBinder.class);
 
-	interface TreasureGeneratorWidgetUiBinder extends
-			UiBinder<Widget, TreasureGeneratorWidget> {
+	interface TreasureGeneratorWidgetUiBinder extends UiBinder<Widget, TreasureGeneratorWidget> {
 	}
-	
-	@UiField Button generate;
-	@UiField ListBox tlListBox;
-	@UiField TextBox xpTextBox;
-	@UiField ListBox modListBox;
-	@UiField Panel results;
-	@UiField Panel npcSpec;
-	@UiField Panel treasureCount;
-	@UiField Widget tlhintbox;
-	@UiField Element tlhint;
-	
+
+	@UiField
+	Button generate;
+	@UiField
+	ListBox tlListBox;
+	@UiField
+	TextBox xpTextBox;
+	@UiField
+	ListBox modListBox;
+	@UiField
+	Panel results;
+	@UiField
+	Panel npcSpec;
+	@UiField
+	Panel treasureCount;
+	@UiField
+	Widget tlhintbox;
+	@UiField
+	Element tlhint;
+
 	private TreasureGenerator generator;
 	private FantasyCraftNPC npc;
 	private NPCEditor npcEditor;
-	
+
 	public TreasureGeneratorWidget() {
 		this(null, null);
 	}
@@ -73,35 +78,30 @@ public class TreasureGeneratorWidget extends TreasureWidget {
 	}
 
 	private class TLChangeHandler implements ChangeHandler {
-		
-		
+
 		public void onChange(ChangeEvent event) {
 			tlhint.setInnerText(Integer.toString(npcEditor.getThreatLevel()));
 		}
-		
+
 	}
+
 	public void setupWidget(Treasure treasure) {
 		super.setupWidget(treasure);
-		
-		generate.addClickHandler(new ClickHandler() {
-			
-			public void onClick(ClickEvent event) {
-				generate();
-			}
-		});
+
+		generate.addClickHandler(event -> generate());
 		if (npc == null) {
 			NPCUtils.addListOptions(tlListBox, true, 1, 21, false, false);
 		}
 		NPCUtils.addListOptions(modListBox, true, -25, 30, 5, false, false);
 		NPCUtils.selectByValue(modListBox, 0);
 	}
-	
+
 	public void generate() {
 		// clear output
 		results.clear();
 		UListElement list = results.getElement().getOwnerDocument().createULElement();
 		results.getElement().appendChild(list);
-		// read spec		
+		// read spec
 		TreasureGenSpec spec = getNPCSpec();
 		// loop through treasure types and produce treasure
 		Treasure treasure = (npc != null) ? npc.getTreasure() : getTreasureFromForm();
@@ -120,7 +120,7 @@ public class TreasureGeneratorWidget extends TreasureWidget {
 		TreasureGenSpec spec;
 		int mod = Integer.parseInt(NPCUtils.getSelectedItemValue(modListBox));
 		if (npcEditor != null && npc != null) {
-			spec = new TreasureGenSpec((int)npc.getXp().getValue(), this.npcEditor.getThreatLevel(), mod);
+			spec = new TreasureGenSpec((int) npc.getXp().getValue(), this.npcEditor.getThreatLevel(), mod);
 		} else {
 			int tl = Integer.parseInt(NPCUtils.getSelectedItemValue(tlListBox));
 			int xp = 0;
@@ -151,12 +151,12 @@ public class TreasureGeneratorWidget extends TreasureWidget {
 		}
 		description += "]</span>";
 		li.setInnerHTML(description);
-		
+
 		if (!item.getChildItems().isEmpty()) {
 			UListElement childList = li.getOwnerDocument().createULElement();
 			for (RandomTableItem childItem : item.getChildItems()) {
 				if (childItem instanceof TreasureItem) {
-					TreasureItem childTreasure = (TreasureItem)childItem;
+					TreasureItem childTreasure = (TreasureItem) childItem;
 					LIElement childLi = childList.getOwnerDocument().createLIElement();
 					renderTreasureItem(childTreasure, childLi);
 					childList.appendChild(childLi);
@@ -164,7 +164,7 @@ public class TreasureGeneratorWidget extends TreasureWidget {
 			}
 			li.appendChild(childList);
 		}
-		
+
 	}
 
 }

@@ -49,18 +49,13 @@ public class AppWidget extends Composite {
 		choosePanel.scButton.addClickHandler(scClickHandler);
 		controlBar.scButton.addClickHandler(scClickHandler);
 		
-		choosePanel.fcNameButton.addClickHandler(new ClickHandler() {
-			public void onClick(ClickEvent event) {
-				NameGeneratorDialogBox dialog = new NameGeneratorDialogBox(null, null, false);
-				dialog.show();
-			}
+		choosePanel.fcNameButton.addClickHandler(event -> {
+			NameGeneratorDialogBox dialog = new NameGeneratorDialogBox(null, null, false);
+			dialog.show();
 		});
-		choosePanel.fcTreasureButton.addClickHandler(new ClickHandler() {
-			public void onClick(ClickEvent event) {
-				TreasureGeneratorDialogBox dialog = new TreasureGeneratorDialogBox();
-				dialog.show();
-				
-			}
+		choosePanel.fcTreasureButton.addClickHandler(event -> {
+			TreasureGeneratorDialogBox dialog = new TreasureGeneratorDialogBox();
+			dialog.show();
 		});
 		
 	}

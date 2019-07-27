@@ -3,8 +3,6 @@ package uk.co.meadicus.npcbuilder.client.xp;
 import java.util.Map;
 
 import com.google.gwt.core.client.GWT;
-import com.google.gwt.event.dom.client.ClickEvent;
-import com.google.gwt.event.dom.client.ClickHandler;
 import com.google.gwt.uibinder.client.UiBinder;
 import com.google.gwt.uibinder.client.UiField;
 import com.google.gwt.user.client.ui.Button;
@@ -17,11 +15,9 @@ import com.google.gwt.user.client.ui.Widget;
 
 public class XPExplainDialogBox extends Composite {
 
-	private static XPExplainDialogBoxUiBinder uiBinder = GWT
-			.create(XPExplainDialogBoxUiBinder.class);
+	private static XPExplainDialogBoxUiBinder uiBinder = GWT.create(XPExplainDialogBoxUiBinder.class);
 
-	interface XPExplainDialogBoxUiBinder extends
-			UiBinder<Widget, XPExplainDialogBox> {
+	interface XPExplainDialogBoxUiBinder extends UiBinder<Widget, XPExplainDialogBox> {
 	}
 
 	protected @UiField DialogBox mainPanel;
@@ -31,7 +27,7 @@ public class XPExplainDialogBox extends Composite {
 
 	public XPExplainDialogBox(XP xp) {
 		initWidget(uiBinder.createAndBindUi(this));
-		
+
 		// create tree
 		xpTree.clear();
 		TreeItem baseItem = new TreeItem();
@@ -39,14 +35,9 @@ public class XPExplainDialogBox extends Composite {
 		addXPBreakdown(baseItem, xp);
 		xpTree.addItem(baseItem);
 		baseItem.setState(true);
-		
+
 		// assign close button event
-		closeButton.addClickHandler(new ClickHandler() {
-			
-			public void onClick(ClickEvent event) {
-				hide();
-			}
-		});
+		closeButton.addClickHandler(event -> hide());
 	}
 
 	private void addXPBreakdown(TreeItem treeItem, XP xp) {
@@ -60,11 +51,11 @@ public class XPExplainDialogBox extends Composite {
 			}
 		}
 	}
-		
+
 	public void show() {
 		mainPanel.center();
 	}
-	
+
 	public void hide() {
 		mainPanel.hide();
 	}

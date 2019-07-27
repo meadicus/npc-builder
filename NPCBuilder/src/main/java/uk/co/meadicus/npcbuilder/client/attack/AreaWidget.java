@@ -1,9 +1,6 @@
 package uk.co.meadicus.npcbuilder.client.attack;
 
-import uk.co.meadicus.npcbuilder.client.util.NPCUtils;
-
 import com.google.gwt.core.client.GWT;
-import com.google.gwt.event.dom.client.ChangeEvent;
 import com.google.gwt.event.dom.client.ChangeHandler;
 import com.google.gwt.event.dom.client.HasChangeHandlers;
 import com.google.gwt.event.shared.HandlerRegistration;
@@ -14,41 +11,39 @@ import com.google.gwt.user.client.ui.Label;
 import com.google.gwt.user.client.ui.ListBox;
 import com.google.gwt.user.client.ui.Widget;
 
+import uk.co.meadicus.npcbuilder.client.util.NPCUtils;
+
 public class AreaWidget extends Composite implements HasChangeHandlers {
 
-	private static AreaWidgetUiBinder uiBinder = GWT
-			.create(AreaWidgetUiBinder.class);
+	private static AreaWidgetUiBinder uiBinder = GWT.create(AreaWidgetUiBinder.class);
 
 	interface AreaWidgetUiBinder extends UiBinder<Widget, AreaWidget> {
 	}
-	
-	@UiField ListBox areaType;
-	@UiField Label unitDescription;
-	@UiField ListBox unitQuantity;
+
+	@UiField
+	ListBox areaType;
+	@UiField
+	Label unitDescription;
+	@UiField
+	ListBox unitQuantity;
 
 	private boolean optionsInitialised = false;
 	private boolean includeBlank = true;
-	
+
 	public AreaWidget() {
 		initWidget(uiBinder.createAndBindUi(this));
-				
+
 	}
 
-	
 	protected void onAttach() {
 		super.onAttach();
-		
+
 		this.initOptions();
-		
+
 		// bind action to update unit selector and descriptor on change of the type
-		areaType.addChangeHandler(new ChangeHandler() {
-			public void onChange(ChangeEvent event) {
-				// get the descriptor for the new type
-				updateUnitSelectorFields(getArea());
-			}
-		});
+		areaType.addChangeHandler(event -> updateUnitSelectorFields(getArea()));
 	}
-	
+
 	private void initOptions() {
 
 		if (!optionsInitialised) {
@@ -82,7 +77,7 @@ public class AreaWidget extends Composite implements HasChangeHandlers {
 			NPCUtils.selectByValue(unitQuantity, area.getAreaQuantity());
 		}
 	}
-	
+
 	public Area getArea() {
 		String name = NPCUtils.getSelectedItemValue(areaType);
 		if (name == null || name.trim().isEmpty()) {
@@ -97,7 +92,7 @@ public class AreaWidget extends Composite implements HasChangeHandlers {
 		areaType.setEnabled(enabled);
 		unitQuantity.setEnabled(enabled);
 	}
-	
+
 	public boolean isIncludeBlank() {
 		return includeBlank;
 	}
@@ -110,9 +105,8 @@ public class AreaWidget extends Composite implements HasChangeHandlers {
 
 		private HandlerRegistration areaTypeHandlerRegistration;
 		private HandlerRegistration unitQuantityHandlerRegistration;
-		
-		protected AreaWidgetHandlerRegistration(
-				HandlerRegistration areaTypeHandlerRegistration,
+
+		protected AreaWidgetHandlerRegistration(HandlerRegistration areaTypeHandlerRegistration,
 				HandlerRegistration unitQuantityHandlerRegistration) {
 			super();
 			this.areaTypeHandlerRegistration = areaTypeHandlerRegistration;
@@ -123,13 +117,13 @@ public class AreaWidget extends Composite implements HasChangeHandlers {
 			this.areaTypeHandlerRegistration.removeHandler();
 			this.unitQuantityHandlerRegistration.removeHandler();
 		}
-		
+
 	}
-	
+
 	public HandlerRegistration addChangeHandler(ChangeHandler handler) {
 		HandlerRegistration areaTypeHandlerRegistration = areaType.addChangeHandler(handler);
 		HandlerRegistration unitQuantityHandlerRegistration = unitQuantity.addChangeHandler(handler);
 		return new AreaWidgetHandlerRegistration(areaTypeHandlerRegistration, unitQuantityHandlerRegistration);
 	}
-	
+
 }
