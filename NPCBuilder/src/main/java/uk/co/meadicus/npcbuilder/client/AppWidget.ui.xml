@@ -1,0 +1,45 @@
+<!DOCTYPE ui:UiBinder SYSTEM "http://dl.google.com/gwt/DTD/xhtml.ent">
+<ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
+	xmlns:g="urn:import:com.google.gwt.user.client.ui" xmlns:n="urn:import:uk.co.meadicus.npcbuilder.client">
+	<ui:style>
+	</ui:style>
+	<g:HTMLPanel>
+		<n:ControlBar ui:field="controlBar"/>
+		<g:FlowPanel ui:field="editArea" addStyleNames="npcEditArea">
+			<g:HTML>
+				<div id="headpic">
+					<a href="http://www.crafty-games.com" title="Spycraft from Crafty Games">
+						<img src="images/Spycraft_RPG_Logo.gif" alt="Spycraft RPG" width="300px" height="150px"/>
+						<img src="images/Fantasy_Craft_Logo.gif" alt="Fantasy Craft RPG" width="300px" height="117px"/>
+						<img src="images/Crafty_Games_Logo.gif" alt="Crafty Games" width="300px" height="117px"/>
+					</a>
+					<p><small><strong><em>Spycraft and all related marks are <sup>TM</sup> and &copy; <a href="http://www.alderac.com">Alderac Entertainment Group, Inc.</a> and used with permission.
+					Fantasy Craft and all related marks are <sup>TM</sup> and &copy; <a href="http://www.crafty-games.com">Crafty Games LLC</a>. All rights reserved.
+					All text herein is copyrighted by <a href="http://www.crafty-games.com">Crafty Games</a>. This software may only be distributed without user-generated content.
+					Crafty Games reserves the right to prevent any distribution of this software containing user-generated content.</em></strong></small></p>
+				</div>
+				<h2>Welcome</h2>
+				<p>
+					The Web NPC builder is a javascript application for constructing NPCs for use in Spycraft 2.0 or Fantasy Craft
+					RPGs from <a href="http://www.crafty-games.com" title="Crafty Games site">Crafty Games</a>.
+				</p>
+				<p>	
+					To keep your NPC just copy and paste the stat block into the text editor of your choice.
+					The builder can import from its own stat blocks for future editing of the NPC.
+				</p>
+			</g:HTML>
+			<n:ChooseBuilderPanel ui:field="choosePanel"/>
+			<g:HTML>
+				<p>
+					For comments/feedback please contact me via the <a href="http://www.crafty-games.com/forum/index.php" title="The Crafty-Games forum">Crafty Games Forum</a> where I go by the name <a href="http://www.crafty-games.com/forum/index.php?action=profile;u=73" title="My Crafty-Games forum profile">meadicus</a>.
+				</p>
+			</g:HTML>
+		</g:FlowPanel>
+		<g:HTMLPanel ui:field="loadingPanel">
+			<div class="blockout"></div>
+			<div class="loading">
+				<img src="images/ajax-loader.gif" width="32" height="32"/>
+			</div>
+		</g:HTMLPanel>
+	</g:HTMLPanel>
+</ui:UiBinder> 

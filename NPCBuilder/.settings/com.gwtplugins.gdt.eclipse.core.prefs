@@ -1,5 +1,6 @@
 eclipse.preferences.version=1
 jarsExcludedFromWebInfLib=
+lastWarOutDir=/home/mead/Dropbox/Gaming/roleplaycode/npc-builder/git/npc-builder/NPCBuilder/target/NPCBuilder-0.0.1-SNAPSHOT
 launchConfigExternalUrlPrefix=
-warSrcDir=war
-warSrcDirIsOutput=true
+warSrcDir=src/main/webapp
+warSrcDirIsOutput=false

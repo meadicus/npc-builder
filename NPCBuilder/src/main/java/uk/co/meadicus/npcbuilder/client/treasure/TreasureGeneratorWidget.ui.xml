@@ -1,0 +1,56 @@
+<!DOCTYPE ui:UiBinder SYSTEM "http://dl.google.com/gwt/DTD/xhtml.ent">
+<ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
+	xmlns:g="urn:import:com.google.gwt.user.client.ui" xmlns:d="urn:import:com.google.gwt.dom.client">
+	<ui:style>
+        .subtext {
+        	font-size: small;
+        	font-style: italic;
+        }
+        .results {
+        	max-height: 20em;
+        	overflow: auto;
+        }
+		.alignLeft {
+			text-align: left;
+		}
+		.inline {
+			display: inline;
+		}
+	</ui:style>
+	<g:HTMLPanel addStyleNames="{style.alignLeft}">
+		<g:FlowPanel ui:field="npcSpec">
+			<g:InlineLabel>TL:</g:InlineLabel>
+			<g:ListBox ui:field="tlListBox"/>
+			<g:InlineLabel>XP:</g:InlineLabel>
+			<g:TextBox ui:field="xpTextBox">0</g:TextBox>
+		</g:FlowPanel>
+		<g:FlowPanel ui:field="treasureCount">
+			<g:InlineLabel>Any:</g:InlineLabel>
+			<g:ListBox ui:field="anyListBox"/>
+			<g:InlineLabel>Coin:</g:InlineLabel>
+			<g:ListBox ui:field="coinListBox"/>
+			<g:InlineLabel>Gear:</g:InlineLabel>
+			<g:ListBox ui:field="gearListBox"/>
+			<g:InlineLabel>Loot:</g:InlineLabel>
+			<g:ListBox ui:field="lootListBox"/>
+			<g:InlineLabel>Magic:</g:InlineLabel>
+			<g:ListBox ui:field="magicListBox"/>
+			<g:InlineLabel>Trophies:</g:InlineLabel>
+			<g:ListBox ui:field="trophiesListBox"/>
+		</g:FlowPanel>
+		<g:FlowPanel>
+			<g:InlineLabel>Roll modifier:</g:InlineLabel>
+			<g:ListBox ui:field="modListBox"/>
+			<g:HTML addStyleNames="{style.inline}" ui:field="tlhintbox"> +<span ui:field="tlhint"></span>(TL) </g:HTML>
+			<g:Button ui:field="generate">generate</g:Button>
+		</g:FlowPanel>
+		<g:FlowPanel ui:field="results" addStyleNames="{style.results}">
+		</g:FlowPanel>
+		<g:HTML>
+			<hr/>
+		</g:HTML>
+		<g:Label addStyleNames="{style.subtext}">
+			This uses the random treasure tables from pp345-353 of Fantasy Craft
+		</g:Label>
+	</g:HTMLPanel>
+</ui:UiBinder> 

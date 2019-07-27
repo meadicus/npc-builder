@@ -1,0 +1,94 @@
+<!DOCTYPE ui:UiBinder SYSTEM "http://dl.google.com/gwt/DTD/xhtml.ent">
+<ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
+	xmlns:g="urn:import:com.google.gwt.user.client.ui">
+	<ui:style>
+        .tabPanel {
+            margin: 10px;
+            min-height: 200px;
+        }
+        .alignRight {
+        	display: inline-block;
+        	text-align: right;
+        }
+        .relative {
+        	position: relative;
+        }
+        .topright {
+        	position: absolute;
+        	top: 0;
+        	right: 0;
+        }
+        .bordered {
+        	border: thin solid #d3d3d3;
+        	padding: 3px;
+        }
+	</ui:style>
+	<g:HTMLPanel>
+		<g:FlowPanel addStyleNames="spycraftEditor">
+			<g:HTML><h1>Spycraft 2.0 NPC Builder</h1></g:HTML>
+			<g:FlowPanel>
+				<g:InlineLabel>Title:</g:InlineLabel>
+				<g:TextBox ui:field="title" text="New NPC"/>
+				<g:InlineLabel>Type:</g:InlineLabel>
+				<g:ListBox ui:field="typeListBox" visibleItemCount="1"></g:ListBox>	
+				<g:Button ui:field="loadPreviousButton">Load Previous NPC...</g:Button>
+				<g:Button ui:field="newNPCButton">New NPC</g:Button>	
+			</g:FlowPanel>
+			<g:FlowPanel width="44em">
+				<g:Label horizontalAlignment="ALIGN_CENTER">Traits</g:Label>
+				<g:FlowPanel>
+					<g:FlowPanel width="11em" addStyleNames="{style.alignRight}">
+						<g:InlineLabel>Initiative:</g:InlineLabel>
+						<g:ListBox ui:field="initListBox" visibleItemCount="1"></g:ListBox>
+					</g:FlowPanel>
+					<g:FlowPanel width="11em" addStyleNames="{style.alignRight}">
+						<g:InlineLabel>Attack:</g:InlineLabel>
+						<g:ListBox ui:field="atkListBox" visibleItemCount="1"></g:ListBox>
+					</g:FlowPanel>
+					<g:FlowPanel width="11em" addStyleNames="{style.alignRight}">
+						<g:InlineLabel>Defense:</g:InlineLabel>
+						<g:ListBox ui:field="defListBox" visibleItemCount="1"></g:ListBox>
+					</g:FlowPanel>
+				</g:FlowPanel>
+				<g:FlowPanel>
+					<g:FlowPanel width="11em" addStyleNames="{style.alignRight}">
+						<g:InlineLabel>Resilience:</g:InlineLabel>
+						<g:ListBox ui:field="resListBox" visibleItemCount="1"></g:ListBox>
+					</g:FlowPanel>
+					<g:FlowPanel width="11em" addStyleNames="{style.alignRight}">
+						<g:InlineLabel>Health:</g:InlineLabel>
+						<g:ListBox ui:field="hlthListBox" visibleItemCount="1"></g:ListBox>
+					</g:FlowPanel>
+					<g:FlowPanel width="11em" addStyleNames="{style.alignRight}">
+						<g:InlineLabel>Competence:</g:InlineLabel>
+						<g:ListBox ui:field="compListBox" visibleItemCount="1"></g:ListBox>
+					</g:FlowPanel>
+					<g:FlowPanel width="11em" addStyleNames="{style.alignRight}">
+						<g:InlineLabel>Wealth:</g:InlineLabel>
+						<g:ListBox ui:field="wealthListBox" visibleItemCount="1"></g:ListBox>
+					</g:FlowPanel>	
+				</g:FlowPanel>
+			</g:FlowPanel>
+			<g:FlowPanel>
+				<g:Button ui:field="skillsButton">Skills...</g:Button>
+				<g:Button ui:field="gearButton">Gear...</g:Button>
+				<g:Button ui:field="qualitiesButton">Qualities...</g:Button>
+			</g:FlowPanel>
+			<g:FlowPanel addStyleNames="{style.relative}">
+				<g:HTMLPanel><h3>Stat Block:</h3></g:HTMLPanel>
+				<g:FlowPanel width="18em" addStyleNames="statToolBar {style.alignRight} {style.topright}">
+					<g:Button ui:field="explainButton">Explain XP</g:Button>
+					<g:InlineLabel>Threat Level:</g:InlineLabel>
+					<g:ListBox ui:field="tlListBox" visibleItemCount="1"></g:ListBox>
+				</g:FlowPanel>
+			</g:FlowPanel>
+			<g:FlowPanel addStyleNames="{style.bordered}">
+				<g:HTML ui:field="statBlock">
+				</g:HTML>
+				<g:HTML ui:field="tlStatBlock">
+				</g:HTML>
+			</g:FlowPanel>
+		</g:FlowPanel>
+	</g:HTMLPanel>
+	
+</ui:UiBinder> 
