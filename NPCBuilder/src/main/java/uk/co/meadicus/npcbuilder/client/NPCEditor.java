@@ -1,6 +1,5 @@
 package uk.co.meadicus.npcbuilder.client;
 
-import java.time.ZonedDateTime;
 import java.util.Date;
 
 import com.google.gwt.event.dom.client.ChangeHandler;
@@ -196,12 +195,13 @@ public abstract class NPCEditor extends Composite {
 
 	protected abstract String getCookieName();
 
+	@SuppressWarnings("deprecation")
 	protected void saveNPC() {
-		ZonedDateTime currentDate = ZonedDateTime.now();
-		ZonedDateTime cookieDate = currentDate.plusYears(10);
+		Date currentDate = new Date();
+		Date cookieDate = new Date(currentDate.getYear() + 10, currentDate.getMonth(), currentDate.getDate());
 		String stats = statBlock.getText();
 		stats = URL.encodeQueryString(stats);
-		Cookies.setCookie(getCookieName(), stats, Date.from(cookieDate.toInstant()));
+		Cookies.setCookie(getCookieName(), stats, cookieDate);
 	}
 
 	protected String loadNPC() {
